@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Pizza Creed - Cart</title>
+</head>
+<body style=" background-image: url(img/cart.png)">
+
+<div style="margin-top: 100px;margin-bottom:400px;">
+    <h1>PIZZA CREED THEMINDA</h1>
+    <tr>
+        <div align="left">
+            <h3>Add New Product
+                <button style="margin:0 0 0 50px;"><a th:href="@{'/new_pizza'}">PRODUCT REGISTER</a></button>
+            </h3>
+        </div>
+    </tr>
+    <tr>
+        <div align="center" class="col-sm-5">
+            <div align="center" class="panel-body">
+                <table class="table table-bordered" style="margin:0 150px 0 150px;">
+                    <thead class="thead-dark">
+                    <tr style="background-color:#fd0d7d;">
+                        <th style="padding:0 30px 0 30px;">ID</th>
+                        <th style="padding:0 30px 0 30px;"> Name</th>
+                        <th style="padding:0 30px 0 30px;">Size</th>
+                        <th style="padding:0 30px 0 30px;">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${listProduct }">
+                        <td th:text="${product.id}"> ID</td>
+                        <td th:text="${product.Name}"> Name</td>
+                        <td th:text="${product.Size}">Size</td>
+                        <td th:text="${product.Price}">Price</td>
+                        <td>
+                            <a th:href="@{'/edits/' + ${product.id}}">Edit</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/deletes/' + ${product.id}}">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </tr>
+    </tbody>
+    </table>
+</div>
+<!-- ======= Footer ======= -->
+<footer id="footer" style="margin-top:1000px;">
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Pizza Creed THEMINDA</span></strong>. All Rights Reserved
+        </div>
+        <div>
+            <h3>PizzaCreedTheminda@gmail.com   /011-234-2340</h3>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<div id="preloader"></div>
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+</body>
+</html>
